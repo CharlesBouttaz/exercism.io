@@ -3,9 +3,10 @@ let Pangram = function(input) {
 };
 
 Pangram.prototype.isPangram = function () {
+    const isLetter = char => char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122;
     let lettersPresent = this.input.split('')
         .map(char => char.toLocaleLowerCase())
-        .filter(char => char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122)
+        .filter(isLetter)
         .reduce((acc, cur) => {
             acc[cur] = true;
             return acc;
